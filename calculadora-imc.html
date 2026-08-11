@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de IMC e Formulação - Portal Saúde</title>
+
+  <!-- Tipografia Externa Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- CSS External -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Header da Página -->
+  <header>
+    <div class="header-container">
+      <a href="index.html" class="logo-area">
+        <div class="logo-badge">⚕️</div>
+        <div class="logo-text">
+          Saúde & Vida
+          <small>Conscientização da Obesidade</small>
+        </div>
+      </a>
+
+      <!-- Menu de Navegação Global (Navegável entre as 4 páginas) -->
+      <nav>
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="causas-prevencao.html">Causas & Prevenção</a></li>
+          <li><a href="mitos-fatos.html">Mitos & Fatos</a></li>
+          <li><a href="calculadora-imc.html" class="active">Calculadora de IMC</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Conteúdo Principal -->
+  <main>
+    <section class="hero-banner">
+      <div class="hero-content">
+        <h1>Cálculo do Índice de Massa Corporal (IMC)</h1>
+        <p>
+          O IMC é uma ferramenta matemática internacional padrão utilizada pela OMS para avaliar a relação entre a massa e a estatura do indivíduo.
+        </p>
+        <p>
+          Fórmula matemática: <strong>IMC = Peso<sub>(kg)</sub> / Altura<sup>2</sup><sub>(m)</sub></strong>.
+        </p>
+      </div>
+      <div>
+        <img src="img/imc.jpg" alt="Gráfico de escala de IMC e acompanhamento de metas de peso saudável" class="page-image">
+      </div>
+    </section>
+
+    <!-- Formulário Interativo de IMC -->
+    <section style="margin-bottom: 32px;">
+      <h2>Calculadora Interativa de IMC</h2>
+      <p style="margin-bottom: 16px;">Preencha os seus dados abaixo para verificar a sua classificação indicativa segundo a OMS:</p>
+
+      <form id="imc-form" onsubmit="calcularIMC(event)">
+        <div class="form-group">
+          <label for="peso">Peso (em kg):</label>
+          <input type="number" id="peso" step="0.1" placeholder="Ex: 75.5" required>
+        </div>
+
+        <div class="form-group">
+          <label for="altura">Altura (em metros):</label>
+          <input type="number" id="altura" step="0.01" placeholder="Ex: 1.75" required>
+        </div>
+
+        <div class="form-group">
+          <label for="faixa-etaria">Faixa Etária:</label>
+          <select id="faixa-etaria">
+            <option value="adulto">Adulto (18 a 59 anos)</option>
+            <option value="idoso">Idoso (60 anos ou mais)</option>
+          </select>
+        </div>
+
+        <button type="submit">Calcular Meu IMC</button>
+      </form>
+
+      <!-- Painel de Resultado -->
+      <div id="resultado-box" class="card" style="display: none; margin-top: 20px; border-left: 4px solid var(--primary-color);">
+        <h3>Seu Resultado:</h3>
+        <p id="resultado-texto" style="font-size: 18px; margin-top: 8px;"></p>
+      </div>
+    </section>
+
+    <!-- Tabela de Referência de IMC -->
+    <section>
+      <h2>Tabela de Classificação da OMS</h2>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Classificação de IMC (kg/m<sup>2</sup>)</th>
+              <th>Status de Peso</th>
+              <th>Risco de Comorbidades</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Menor que 18,5</td>
+              <td>Abaixo do Peso</td>
+              <td>Baixo (porém risco nutricional)</td>
+            </tr>
+            <tr>
+              <td><mark>18,5 a 24,9</mark></td>
+              <td><b>Peso Normal (Eutrofia)</b></td>
+              <td>Médio / Adequado</td>
+            </tr>
+            <tr>
+              <td>25,0 a 29,9</td>
+              <td>Sobrepeso (Pré-obesidade)</td>
+              <td>Aumentado</td>
+            </tr>
+            <tr>
+              <td>30,0 a 34,9</td>
+              <td><strong>Obesidade Grau I</strong></td>
+              <td>Moderado</td>
+            </tr>
+            <tr>
+              <td>35,0 a 39,9</td>
+              <td><strong>Obesidade Grau II</strong></td>
+              <td>Grave</td>
+            </tr>
+            <tr>
+              <td>Maior ou igual a 40,0</td>
+              <td><strong>Obesidade Grau III (Mórbida)</strong></td>
+              <td>Muito Grave</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p><small>* O IMC é um indicador geral e deve ser interpretado junto à avaliação de composição corporal médica (bioimpedância e dobras cutâneas).</small></p>
+    </section>
+  </main>
+
+  <!-- Rodapé -->
+  <footer>
+    <div class="footer-container">
+      <p>&copy; 2026 Portal de Conscientização da Obesidade & Saúde Pública. Todos os direitos reservados.</p>
+      <div class="footer-links">
+        <a href="index.html">Início</a>
+        <a href="causas-prevencao.html">Prevenção</a>
+        <a href="mitos-fatos.html">Mitos</a>
+        <a href="calculadora-imc.html">IMC</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script Lógico da Calculadora de IMC -->
+  <script>
+    function calcularIMC(e) {
+      e.preventDefault();
+      const peso = parseFloat(document.getElementById('peso').value);
+      const altura = parseFloat(document.getElementById('altura').value);
+      
+      if (!peso || !altura || altura <= 0) return;
+      
+      const imc = (peso / (altura * altura)).toFixed(1);
+      let classificacao = '';
+      
+      if (imc < 18.5) {
+        classificacao = 'Abaixo do peso';
+      } else if (imc >= 18.5 && imc <= 24.9) {
+        classificacao = 'Peso Normal (Saudável)';
+      } else if (imc >= 25 && imc <= 29.9) {
+        classificacao = 'Sobrepeso';
+      } else if (imc >= 30 && imc <= 34.9) {
+        classificacao = 'Obesidade Grau I';
+      } else if (imc >= 35 && imc <= 39.9) {
+        classificacao = 'Obesidade Grau II';
+      } else {
+        classificacao = 'Obesidade Grau III';
+      }
+
+      const resBox = document.getElementById('resultado-box');
+      const resTexto = document.getElementById('resultado-texto');
+      
+      resTexto.innerHTML = 'O seu IMC calculado é <strong>' + imc + ' kg/m<sup>2</sup></strong> — Classificação: <mark>' + classificacao + '</mark>';
+      resBox.style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>
