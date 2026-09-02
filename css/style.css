@@ -1,21 +1,46 @@
 /* Estilo CSS com Flexbox e Grid */
+
+/* === ESTRUTURA GERAL (BODY) === */
+/* 
+CÓDIGO ANTIGO:
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
   background-color: #f4f6f8;
   color: #333;
-  /* Grid Layout para a estrutura da página */
+}
+*/
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f6f8;
+  color: #333;
+  /* Grid Layout para a estrutura da página (NOVO) */
   display: grid;
   grid-template-rows: auto 1fr auto;
   min-height: 100vh;
 }
 
+/* === CABEÇALHO (HEADER) === */
+/*
+CÓDIGO ANTIGO:
+header {
+  background-color: #0d9488;
+  color: white;
+  padding: 15px 20px;
+  text-align: center;
+}
+h1 {
+  color: #fbfdfd;
+}
+*/
 header {
   background-color: #0d9488;
   color: white;
   padding: 15px 40px;
-  /* Flexbox Layout para o cabeçalho */
+  /* Flexbox Layout para o cabeçalho (NOVO) */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -34,8 +59,24 @@ header h1 {
   color: #fbfdfd;
 }
 
+/* === NAVEGAÇÃO (NAV) === */
+/*
+CÓDIGO ANTIGO:
 nav {
-  /* Flexbox Layout para a navegação */
+  margin-top: 10px;
+}
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+  font-weight: bold;
+}
+nav a:hover {
+  text-decoration: underline;
+}
+*/
+nav {
+  /* Flexbox Layout para a navegação (NOVO) */
   display: flex;
   gap: 15px;
   align-items: center;
@@ -56,6 +97,18 @@ nav a:hover {
   background-color: rgba(255, 255, 255, 0.2);
 }
 
+/* === CONTEÚDO PRINCIPAL (MAIN) === */
+/*
+CÓDIGO ANTIGO:
+main {
+  max-width: 800px;
+  margin: 20px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+*/
 main {
   width: 100%;
   max-width: 800px;
@@ -98,7 +151,12 @@ ins {
   color: #16a34a;
 }
 
-/* Aplicando Grid em listas de conteúdos se aplicável */
+/* === LISTAS (GRID DE CONTEÚDO) === */
+/*
+CÓDIGO ANTIGO:
+Não existia CSS para <ul> e <li>. As listas usavam o fluxo normal de bloco.
+*/
+/* Aplicando Grid em listas de conteúdos se aplicável (NOVO) */
 main ul {
   display: grid;
   grid-template-columns: 1fr;
@@ -123,6 +181,17 @@ main ul li {
   list-style-type: none;
 }
 
+/* === RODAPÉ (FOOTER) === */
+/*
+CÓDIGO ANTIGO:
+footer {
+  text-align: center;
+  padding: 15px;
+  background-color: #333;
+  color: white;
+  margin-top: 30px;
+}
+*/
 footer {
   text-align: center;
   padding: 20px;
