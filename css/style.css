@@ -1,45 +1,79 @@
-/* Estilo CSS Externo Simples */
+/* Estilo CSS com Flexbox e Grid */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
   background-color: #f4f6f8;
   color: #333;
+  /* Grid Layout para a estrutura da página */
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
 }
 
 header {
   background-color: #0d9488;
   color: white;
-  padding: 15px 20px;
-  text-align: center;
+  padding: 15px 40px;
+  /* Flexbox Layout para o cabeçalho */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+@media (min-width: 768px) {
+  header {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+header h1 {
+  margin: 0;
+  color: #fbfdfd;
 }
 
 nav {
-  margin-top: 10px;
+  /* Flexbox Layout para a navegação */
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 nav a {
   color: white;
   text-decoration: none;
-  margin: 0 10px;
   font-weight: bold;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: background-color 0.3s;
 }
 
 nav a:hover {
-  text-decoration: underline;
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 main {
+  width: 100%;
   max-width: 800px;
-  margin: 20px auto;
+  margin: 40px auto;
   background: white;
-  padding: 20px;
+  padding: 30px;
   border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  box-sizing: border-box;
 }
 
-h1 {
-  color: #fbfdfd;
+main h1 {
+  color: #0f766e;
+  margin-top: 0;
+}
+
+main h2 {
+  color: #115e59;
 }
 
 img {
@@ -47,11 +81,13 @@ img {
   height: auto;
   border-radius: 8px;
   margin: 15px 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 mark {
   background-color: #fef08a;
   padding: 2px 4px;
+  border-radius: 2px;
 }
 
 del {
@@ -62,10 +98,34 @@ ins {
   color: #16a34a;
 }
 
+/* Aplicando Grid em listas de conteúdos se aplicável */
+main ul {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  padding-left: 20px;
+}
+
+@media (min-width: 600px) {
+  main ul {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding-left: 0;
+    list-style-position: inside;
+  }
+}
+
+main ul li {
+  background-color: #f8fafc;
+  padding: 10px 15px;
+  border-left: 4px solid #0d9488;
+  border-radius: 4px;
+  list-style-type: none;
+}
+
 footer {
   text-align: center;
-  padding: 15px;
-  background-color: #333;
+  padding: 20px;
+  background-color: #1f2937;
   color: white;
-  margin-top: 30px;
 }
